@@ -3,7 +3,7 @@
 A modern tap-interactive wedding invitation built using HTML, CSS, and JavaScript.
 
 ## 🌐 Live Link
-https://yourusername.github.io/Karthik & Priya -invitation
+https://yourusername.github.io/Karthik&Priya-invitation
 
 ## ✨ Features
 - Tap to open interaction
