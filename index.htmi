@@ -1,1 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Wedding Invitation</title>
+
+<!-- UPDATED FONTS -->
+<link href="https://fonts.googleapis.com/css2?family=Allura&family=Great+Vibes&family=Poppins:wght@300;400;600&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Circle container */
+.ganesha-box {
+  position: relative;
+  width: 110px;
+  height: 110px;
+  margin: 25px auto;
+  border-radius: 50%;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+/* Rotating border */
+.ganesha-box::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 60%;
+  background: conic-gradient(
+    #ff9800,
+    #ff5722,
+    #ff9800,
+    transparent 60%
+  );
+  animation: rotateBorder 3s linear infinite;
+  z-index: -1;
+}
+
+/* Inner layer */
+.ganesha-box::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  background: #ffffff;
+  border-radius: 0%;
+  z-index: -1;
+}
+
+/* Ganesha image */
+.ganesha {
+  width: 65px;
+}
+
+/* Animation */
+@keyframes rotateBorder {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ===== ENVELOPE (UNCHANGED) ===== */
+.envelope {
+  width: 100%;
+  height: 100vh;
+  background: url('bg.jpg') center/cover no-repeat;
+  position: relative;
+}
+.calendar-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 14px 24px;
+  background: #000;
+  color: #fff;
+
+  border-radius: 30px;
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transition: 0.3s ease;
+}
+
+.calendar-btn:hover {
+  transform: scale(1.05);
+}
+/* CLICK AREA */
+.click-area {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* TEXT */
+.bottom-text {
+  position: absolute;
+  top: 68%;
+  width: 100%;
+  text-align: center;
+  font-family: 'Great Vibes', cursive;
+  font-size: 28px;
+  color: #fdf6e3;
+  text-shadow: 0 3px 10px rgba(0,0,0,0.7);
+}
+
+/* ===== ANIMATION ===== */
+.fade-out {
+  animation: fadeZoom 1s forwards;
+}
+
+@keyframes fadeZoom {
+  0% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.15); }
+}
+
+/* ===== CONTENT PAGE ===== */
+.content {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  display: none;
+  overflow-y: auto;
+  animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ===== SECTION ===== */
+.section {
+  text-align: center;
+  padding: 60px 25px 30px;
+}
+
+/* ===== GANESHA TEXT ===== */
+.ganesha-text {
+  margin-top: 12px;
+  font-size: 13px;
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  color: #2f6f67;
+  letter-spacing: 1px;
+}
+
+/* ===== NAMES (UPDATED) ===== */
+.names {
+  font-family: 'Allura', cursive;
+  font-size: 3.6rem;
+  color: #2f6f67;
+  margin: 5px 0;
+  line-height: 1.1;
+}
+  .with-text {
+  font-family: 'Allura', cursive;  /* same font */
+  font-size: 2.8rem;               /* smaller than names */
+  color: #2f6f67;                  /* same color */
+  margin: 5px 0;
+  }
+
+/* SMALL TEXT */
+.section p {
+  margin: 6px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+/* DATE */
+.date {
+  color: #1f6f6f;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+/* CARDS */
+.card {
+  background: #dbeeee;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 20px;
+}
+  .card {
+  background: #dbeeee;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+/* ===== COUPLE IMAGE ===== */
+.couple-section {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.couple-img {
+  width: 85%;
+  max-width: 320px;
+  border-radius: 30px;
+}
+
+/* TEXT BELOW IMAGE */
+.invite-text {
+  margin-top: 20px;
+  font-size: 16px;
+  color: #444;
+  line-height: 1.6;
+}
+</style>
+</head>
+
+<body>
+<!-- 🎵 ADD THIS AUDIO -->
+<audio id="music" loop playsinline>
+  <source src="AUD-20260406-WA0005.mp3" type="audio/mpeg">
+</audio>
+<!-- ENVELOPE -->
+<div class="envelope" id="env">
+  <div class="click-area" onclick="openInvite()"></div>
+</div>
+
+<!-- WEDDING PAGE -->
+<div class="content" id="content">
+
+  <div class="section">
+    
+    <div class="ganesha-box">
+      <img src="ganesha.png.jpg" class="ganesha">
+    </div>
+
+    <h3 class="ganesha-text">||Shree Ganeshaya Namaha||</h3>
+
+    <div class="names">Karthik</div>
+    <p>S/o Family Details</p>
+
+    <p class="with-text">With</p>
+
+    <div class="names">Priya</div>
+    <p>D/o Family Details</p>
+
+    <div class="date">
+      Sunday, 26 April 2026, 12:00 Noon
+    </div>
+    <!-- 💑 COUPLE IMAGE SECTION -->
+<div class="couple-section">
+
+  <img src="couple.webp" class="couple-img">
+
+  <p class="invite-text">
+    With joyful hearts,<br>
+    we invite you to share in our wedding celebration
+  </p>
+
+</div>
+  </div>
+
+  <div class="card">
+    <h3>Wedding</h3>
+    <p>Venue Details Here</p>
+  </div>
+
+  <div class="card">
+    <h3>Reception</h3>
+    <p>Venue Details Here</p>
+  </div>
+<div class="card">
+  <h3>Reception</h3>
+  <p>Venue Details Here</p>
+</div>
+
+<!-- 📅 ADD CALENDAR HERE -->
+<div style="text-align:center; margin: 30px 0;">
+<a href="wedding.ics" class="calendar-btn">
+📅 Add to Calendar
+  </a>
+</div>
+
+</div>
+</div>
+
+<script>
+function openInvite() {
+  let env = document.getElementById("env");
+
+  try {
+    let music = document.getElementById("music");
+    if (music) {
+      music.volume = 0.3;   // 👈 ADD HERE
+      music.play();
+    }
+  } catch (e) {}
+
+  env.classList.add("fade-out");
+
+  setTimeout(() => {
+    env.style.display = "none";
+    document.getElementById("content").style.display = "block";
+  }, 900);
+}
+</script>
+
+</body>
+</html>
