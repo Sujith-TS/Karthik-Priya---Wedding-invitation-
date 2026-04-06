@@ -1,1 +1,58 @@
+body {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Envelope Background */
+.envelope {
+  width: 100%;
+  height: 100vh;
+  background: url('bg.jpg') no-repeat center center;
+  background-size: cover;
+  position: relative;
+}
+
+/* Seal */
+.seal {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+
+  background: radial-gradient(circle, #f8f1e5, #e6d3b3);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: 'Great Vibes', cursive;
+  font-size: 32px;
+  color: #c49b3f;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.5),
+    inset 0 3px 6px rgba(255,255,255,0.9),
+    inset 0 -3px 6px rgba(0,0,0,0.2);
+
+  cursor: pointer;
+}
+
+/* Bottom Text */
+.bottom-text {
+  position: absolute;
+  top: 65%;
+  width: 100%;
+  text-align: center;
+
+  font-family: 'Allura', cursive;
+  font-size: 26px;
+  color: #f5f5f5;
+
+  text-shadow: 0 3px 8px rgba(0,0,0,0.6);
+}
 
